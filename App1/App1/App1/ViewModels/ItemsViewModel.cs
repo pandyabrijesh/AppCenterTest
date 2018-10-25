@@ -7,6 +7,7 @@ using Xamarin.Forms;
 
 using App1.Models;
 using App1.Views;
+using Microsoft.AppCenter.Crashes;
 
 namespace App1.ViewModels
 {
@@ -26,6 +27,20 @@ namespace App1.ViewModels
                 var _item = item as Item;
                 Items.Add(_item);
                 await DataStore.AddItemAsync(_item);
+
+
+                Crashes.TrackError(new Exception("Custom Exception Added"));
+
+                try
+                {
+                    throw new Exception("My custom exception throw from here");
+                }
+                catch (Exception ex)
+                {
+
+                    Crashes.TrackError(ex);
+                }
+
             });
         }
 

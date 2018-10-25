@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AppCenter.Analytics;
+using System;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,6 +12,7 @@ namespace App1.Views
 		public MainPage ()
 		{
 			InitializeComponent ();
-		}
+            Analytics.TrackEvent("Evnet for MainPage");
+        }
 	}
 }

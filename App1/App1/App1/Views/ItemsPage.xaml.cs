@@ -10,6 +10,7 @@ using Xamarin.Forms.Xaml;
 using App1.Models;
 using App1.Views;
 using App1.ViewModels;
+using Microsoft.AppCenter.Analytics;
 
 namespace App1.Views
 {
@@ -21,7 +22,7 @@ namespace App1.Views
         public ItemsPage()
         {
             InitializeComponent();
-
+            Analytics.TrackEvent("Evnet for ItemsPage");
             BindingContext = viewModel = new ItemsViewModel();
         }
 
